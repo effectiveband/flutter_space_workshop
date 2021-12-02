@@ -1,16 +1,33 @@
-# workshop_template
+# Flutter Workshop
 
-A new Flutter project.
+Добрый день участники Воркшопа! Данный шаблон был создан специально для того, чтобы ознакомить Вас с возможностями фреймворка Flutter!
 
-## Getting Started
+## До начала работы
 
-This project is a starting point for a Flutter application.
+Прежде чем начать, обязательно нужно установить и настроить Flutter - https://docs.flutter.dev/get-started/install <br>
+Для разработки Flutter-приложений рекомендуется использовать редактор кода VS Code - https://code.visualstudio.com
 
-A few resources to get you started if this is your first Flutter project:
+Также предоставляется документация виджетов, которая используется в проекте:
+- Hero https://api.flutter.dev/flutter/widgets/Hero-class.html
+- Column https://api.flutter.dev/flutter/widgets/Column-class.html
+- Row https://api.flutter.dev/flutter/widgets/Row-class.html
+- Container https://api.flutter.dev/flutter/widgets/Container-class.html
+- SizedBox https://api.flutter.dev/flutter/widgets/SizedBox-class.html
+- Align https://api.flutter.dev/flutter/widgets/Align-class.html
+- ListView https://api.flutter.dev/flutter/widgets/ListView-class.html
+- Text https://api.flutter.dev/flutter/widgets/Text-class.html
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Что делать
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Во время практической части Вам предлагается использовать следующие файлы: 
+- `demo_data.dart` (статические данные, которыми Вы будете оперировать в Вашем проекте)
+- `user_list_view.dart` (Модуль, который строит лист из Ваших статических данных)
+- `user_hero_card.dart` (Шаблон карточки, которая стоится в `user_list_view.dart`)
+- `user_detailed_page.dart` (Подробная страница о Вас)
+
+В каждом из этих файлов вы можете менять стили, контент и делать, все что вы хотите увидеть в Вашем примере, проявляйте фантазию!
+
+## Extra
+
+Данный пример был реализован при помощи команды gskinner.
+Репозиторий, откуда был взят пример - https://github.com/gskinnerTeam/flutter_vignettes
