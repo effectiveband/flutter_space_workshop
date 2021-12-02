@@ -7,7 +7,7 @@
 Прежде чем начать, обязательно нужно установить и настроить Flutter - https://docs.flutter.dev/get-started/install <br>
 Для разработки Flutter-приложений рекомендуется использовать редактор кода VS Code - https://code.visualstudio.com
 
-Также предоставляется документация виджетов, которая используется в проекте:
+Также предоставляется документация виджетов, которые используются в проекте:
 - Hero https://api.flutter.dev/flutter/widgets/Hero-class.html
 - Column https://api.flutter.dev/flutter/widgets/Column-class.html
 - Row https://api.flutter.dev/flutter/widgets/Row-class.html
