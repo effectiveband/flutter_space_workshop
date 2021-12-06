@@ -35,10 +35,8 @@ class UserDetailedPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 35,
-            ),
             Container(
+              padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   gradient: LinearGradient(
@@ -57,41 +55,38 @@ class UserDetailedPage extends StatelessWidget {
                         secondaryColor,
                         secondaryColor
                       ])),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        UserHeroCard(
-                          userData: userData,
-                          isOnDetailedPage: true,
-                        ),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Expanded(
-                          child: Text(
-                            userData.description,
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    //Here is your code
-
-                    //-----------------
-
-                    ElevatedButton(
-                      onPressed: backTap,
-                      child: Text(
-                        'Вернуться к списку',
-                        style: TextStyle(color: primaryColor),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      UserHeroCard(
+                        userData: userData,
+                        isOnDetailedPage: true,
                       ),
-                      style: backButtonStyle,
-                    )
-                  ],
-                ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Expanded(
+                        child: Text(
+                          userData.description,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  //Here is your code
+
+                  //-----------------
+
+                  ElevatedButton(
+                    onPressed: backTap,
+                    child: Text(
+                      'Вернуться к списку',
+                      style: TextStyle(color: primaryColor),
+                    ),
+                    style: backButtonStyle,
+                  )
+                ],
               ),
             ),
             const SizedBox(
