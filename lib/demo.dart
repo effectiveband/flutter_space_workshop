@@ -1,6 +1,7 @@
-import 'package:workshop_template/user_detailed_page.dart';
+import 'package:workshop_template/YOUR_CUSTOMIZATION_HERE/user_detailed_page.dart';
+import 'package:workshop_template/settings/settings_page.dart';
 
-import 'demo_data.dart';
+import 'YOUR_CUSTOMIZATION_HERE/demo_data.dart';
 import 'star_field/star_field.dart';
 import 'widgets/fade_route_builder.dart';
 import 'widgets/nested_navigator.dart';
@@ -105,11 +106,19 @@ class _ConstellationsListDemoState extends State<ConstellationsListDemo>
           _reverseStarAnim();
         },
       );
+    } else if (route.name == SettingsPage.route) {
+      page = SettingsPage(
+        backTap: () {
+          _navigationStackKey.currentState?.pop();
+          _reverseStarAnim();
+        },
+      );
     } else {
       page = UserListView(
         users: _userData,
         onItemTap: _onItemTap,
         onScrolled: _handleListScroll,
+        onSettingsButtonTap: _onSettingsButtonTap,
       );
     }
     return FadeRouteBuilder(page: page);
@@ -118,6 +127,11 @@ class _ConstellationsListDemoState extends State<ConstellationsListDemo>
   void _onItemTap(UserData userData) {
     _navigationStackKey.currentState
         ?.pushNamed(UserDetailedPage.route, arguments: userData);
+    _starAnimController.forward(from: 0);
+  }
+
+  void _onSettingsButtonTap() {
+    _navigationStackKey.currentState?.pushNamed(SettingsPage.route);
     _starAnimController.forward(from: 0);
   }
 

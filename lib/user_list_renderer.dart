@@ -1,4 +1,4 @@
-import 'package:workshop_template/demo_data.dart';
+import 'package:workshop_template/YOUR_CUSTOMIZATION_HERE/demo_data.dart';
 import 'package:workshop_template/user_hero_card.dart';
 
 import 'package:flutter/material.dart';
@@ -29,21 +29,19 @@ class _UserListRendererState extends State<UserListRenderer> {
     double vtPadding = 24;
     return GestureDetector(
       onTap: () => _handleTap(),
-      child: Transform.translate(
-        offset: Offset(widget.index % 2 == 0 ? 25 : -25, 0),
-        child: Container(
-            padding: EdgeInsets.only(
-                top: vtPadding,
-                bottom: vtPadding,
-                left: leftPadding,
-                right: rightPadding),
-            alignment: widget.index % 2 == 0
-                ? Alignment.centerRight
-                : Alignment.centerLeft,
-            child: UserHeroCard(
-              userData: widget.userData,
-            )),
-      ),
+      child: Container(
+          padding: EdgeInsets.only(
+              top: vtPadding,
+              bottom: vtPadding,
+              left: leftPadding,
+              right: rightPadding),
+          alignment: widget.index % 2 == 0
+              ? Alignment.centerRight
+              : Alignment.centerLeft,
+          child: UserHeroCard(
+            userData: widget.userData,
+            isOnDetailedPage: false,
+          )),
     );
   }
 

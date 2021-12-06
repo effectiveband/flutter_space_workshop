@@ -1,24 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:shared/env.dart';
+import 'package:workshop_template/settings/settings_controller.dart';
 
 import 'demo.dart';
 
-void main() => runApp(const App());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const App());
+}
 
 class App extends StatelessWidget {
-  static const String _pkg = 'constellations_list';
-
   const App({Key? key}) : super(key: key);
-  static String get pkg => Env.getPackage(_pkg);
-  static String get bundle => Env.getBundle(_pkg);
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: const []);
-    return const MaterialApp(
-      home: ConstellationsListDemo(),
+    return ChangeNotifierProvider<SettingsController>(
+      create: (context) => SettingsController(),
+      child: Builder(
+        builder: (context) {
+          final SettingsController settingsController =
+              Provider.of<SettingsController>(context, listen: true);
+          return MaterialApp(
+            theme: settingsController.themeData,
+            home: const ConstellationsListDemo(),
+          );
+        },
+      ),
     );
   }
 }

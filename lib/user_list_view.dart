@@ -1,4 +1,4 @@
-import 'demo_data.dart';
+import 'YOUR_CUSTOMIZATION_HERE/demo_data.dart';
 import 'user_list_renderer.dart';
 import 'styles.dart';
 import 'package:flutter/material.dart';
@@ -9,12 +9,14 @@ class UserListView extends StatefulWidget {
   final List<UserData> users;
   final void Function(double) onScrolled;
   final void Function(UserData) onItemTap;
+  final void Function() onSettingsButtonTap;
 
   const UserListView(
       {Key? key,
       required this.onScrolled,
       required this.onItemTap,
-      required this.users})
+      required this.users,
+      required this.onSettingsButtonTap})
       : super(key: key);
 
   @override
@@ -35,7 +37,7 @@ class _UserListViewState extends State<UserListView> {
             _buildScrollingList(),
             _buildGradientOverlay(),
             _buildHeaderText(),
-            _buildLocationText()
+            _buildSettingsButton()
           ],
         ),
       ),
@@ -45,17 +47,20 @@ class _UserListViewState extends State<UserListView> {
   Widget _buildScrollingList() {
     return NotificationListener<ScrollNotification>(
       onNotification: _handleScrollNotification,
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.only(top: 150, bottom: 200),
-        itemCount: widget.users.length,
-        itemBuilder: (context, index) {
-          return UserListRenderer(
-            onTap: widget.onItemTap,
-            index: index,
-            userData: widget.users[index],
-          );
-        },
+      child: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.only(top: 150, bottom: 200),
+          itemCount: widget.users.length,
+          itemBuilder: (context, index) {
+            return UserListRenderer(
+              onTap: widget.onItemTap,
+              index: index,
+              userData: widget.users[index],
+            );
+          },
+        ),
       ),
     );
   }
@@ -67,7 +72,7 @@ class _UserListViewState extends State<UserListView> {
       left: 16,
       top: 16,
       child: Text(
-        "ABOUT YOURSELF",
+        "FLUTTER EFFECTIVE TEAM",
         style: TextStyle(
             color: Colors.white,
             fontSize: 28,
@@ -99,21 +104,20 @@ class _UserListViewState extends State<UserListView> {
   }
 
   // May be customizable
-  Positioned _buildLocationText() {
-    return const Positioned(
-      width: 120,
-      right: 16,
-      top: 12,
-      child: Text(
-        "New York City (USA, NY) 40.71 °N - 74.01 °W",
-        textAlign: TextAlign.right,
-        style: TextStyle(
-            color: Colors.grey,
-            fontSize: 10,
-            fontFamily: Fonts.content,
-            height: 1.8),
-      ),
-    );
+  Positioned _buildSettingsButton() {
+    final ButtonStyle settingsButtonStyle = ElevatedButton.styleFrom(
+        primary: Colors.transparent,
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+        shape: const RoundedRectangleBorder(
+            side: BorderSide(color: Colors.white),
+            borderRadius: BorderRadius.all(Radius.circular(10))));
+    return Positioned(
+        right: 16,
+        top: 12,
+        child: ElevatedButton(
+            onPressed: widget.onSettingsButtonTap,
+            style: settingsButtonStyle,
+            child: const Text('Настройки')));
   }
 
   bool _handleScrollNotification(ScrollNotification notification) {
