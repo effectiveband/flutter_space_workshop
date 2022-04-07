@@ -14,8 +14,6 @@ ThemeData mercuryTheme = ThemeData(
     surface: ApplicationColors.white,
     brightness: ApplicationColors.brightness,
     secondary: ApplicationColors.mercurySecondary,
-    primaryVariant: ApplicationColors.white,
-    secondaryVariant: ApplicationColors.white,
   ),
 );
 
@@ -32,8 +30,6 @@ ThemeData venusTheme = ThemeData(
     surface: ApplicationColors.white,
     brightness: ApplicationColors.brightness,
     secondary: ApplicationColors.venusSecondary,
-    primaryVariant: ApplicationColors.white,
-    secondaryVariant: ApplicationColors.white,
   ),
 );
 
@@ -50,8 +46,6 @@ ThemeData earthTheme = ThemeData(
     surface: ApplicationColors.white,
     brightness: ApplicationColors.brightness,
     secondary: ApplicationColors.earthSecondary,
-    primaryVariant: ApplicationColors.white,
-    secondaryVariant: ApplicationColors.white,
   ),
 );
 
@@ -68,8 +62,6 @@ ThemeData marsTheme = ThemeData(
     surface: ApplicationColors.white,
     brightness: ApplicationColors.brightness,
     secondary: ApplicationColors.marsSecondary,
-    primaryVariant: ApplicationColors.white,
-    secondaryVariant: ApplicationColors.white,
   ),
 );
 
@@ -86,8 +78,6 @@ ThemeData jupiterTheme = ThemeData(
     surface: ApplicationColors.white,
     brightness: ApplicationColors.brightness,
     secondary: ApplicationColors.jupiterSecondary,
-    primaryVariant: ApplicationColors.white,
-    secondaryVariant: ApplicationColors.white,
   ),
 );
 
@@ -104,8 +94,6 @@ ThemeData saturnTheme = ThemeData(
     surface: ApplicationColors.white,
     brightness: ApplicationColors.brightness,
     secondary: ApplicationColors.saturnSecondary,
-    primaryVariant: ApplicationColors.white,
-    secondaryVariant: ApplicationColors.white,
   ),
 );
 
@@ -122,8 +110,6 @@ ThemeData uranusTheme = ThemeData(
     surface: ApplicationColors.white,
     brightness: ApplicationColors.brightness,
     secondary: ApplicationColors.uranusSecondary,
-    primaryVariant: ApplicationColors.white,
-    secondaryVariant: ApplicationColors.white,
   ),
 );
 
@@ -140,7 +126,5 @@ ThemeData neptuneTheme = ThemeData(
     surface: ApplicationColors.white,
     brightness: ApplicationColors.brightness,
     secondary: ApplicationColors.neptuneSecondary,
-    primaryVariant: ApplicationColors.white,
-    secondaryVariant: ApplicationColors.white,
   ),
 );

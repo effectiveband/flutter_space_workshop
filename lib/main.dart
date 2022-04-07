@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:shared/env.dart';
 import 'package:workshop_template/settings/settings_controller.dart';
 
 import 'demo.dart';
