@@ -5,7 +5,7 @@ import 'package:workshop_template/YOUR_CUSTOMIZATION_HERE/demo_data.dart';
 import 'package:workshop_template/user_hero_card.dart';
 
 //This code if fully customizable
-class UserDetailedPage extends StatelessWidget {
+class UserDetailedPage extends StatefulWidget {
   static String route = 'detailed';
   final Function() backTap;
   final UserData userData;
@@ -15,19 +15,12 @@ class UserDetailedPage extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<UserDetailedPage> createState() => _UserDetailedPageState();
+}
+
+class _UserDetailedPageState extends State<UserDetailedPage> {
+  @override
   Widget build(BuildContext context) {
-    final Color borderColor = Theme.of(context).colorScheme.primary;
-
-    final ButtonStyle backButtonStyle = ElevatedButton.styleFrom(
-        primary: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
-        shape: RoundedRectangleBorder(
-            side: BorderSide(color: borderColor, width: 2),
-            borderRadius: const BorderRadius.all(Radius.circular(10))));
-
-    final Color primaryColor = Theme.of(context).colorScheme.primary;
-    final Color secondaryColor = Theme.of(context).colorScheme.secondary;
-
     return Align(
       child: Container(
         padding: const EdgeInsets.only(top: 24),
@@ -60,7 +53,7 @@ class UserDetailedPage extends StatelessWidget {
                   Row(
                     children: [
                       UserHeroCard(
-                        userData: userData,
+                        userData: widget.userData,
                         isOnDetailedPage: true,
                       ),
                       const SizedBox(
@@ -68,7 +61,7 @@ class UserDetailedPage extends StatelessWidget {
                       ),
                       Expanded(
                         child: Text(
-                          userData.description,
+                          widget.userData.description,
                         ),
                       ),
                     ],
@@ -79,7 +72,7 @@ class UserDetailedPage extends StatelessWidget {
                   //-----------------
 
                   ElevatedButton(
-                    onPressed: backTap,
+                    onPressed: widget.backTap,
                     child: Text(
                       'Вернуться к списку',
                       style: TextStyle(color: primaryColor),
@@ -97,4 +90,13 @@ class UserDetailedPage extends StatelessWidget {
       ),
     );
   }
+
+  Color get primaryColor => Theme.of(context).colorScheme.primary;
+  Color get secondaryColor => Theme.of(context).colorScheme.secondary;
+  ButtonStyle get backButtonStyle => ElevatedButton.styleFrom(
+      primary: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+      shape: RoundedRectangleBorder(
+          side: BorderSide(color: primaryColor, width: 2),
+          borderRadius: const BorderRadius.all(Radius.circular(10))));
 }
